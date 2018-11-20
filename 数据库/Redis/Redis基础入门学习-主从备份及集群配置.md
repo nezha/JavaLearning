@@ -30,7 +30,7 @@ requirepass 123456
 ```bash
 port 6001
 pidfile /var/run/redis_6001.pid
-slaveof 47.101.55.66 6000
+slaveof 47.1xx.xx.66 6000
 requirepass 123456
 masterauth 123456
 ```
@@ -40,7 +40,7 @@ masterauth 123456
 ```bash
 port 6002
 pidfile /var/run/redis_6002.pid
-slaveof 47.101.55.66 6000
+slaveof 47.1xx.xx.66 6000
 requirepass 123456
 masterauth 123456
 ```
