@@ -1,6 +1,10 @@
 # JavaLearning
 这个是我的Java学习笔记
 
+> 我的博客地址：https://nezha.github.io
+> 我的简书地址：https://www.jianshu.com/u/a5153fbb0434
+> 我的邮箱地址：<nezhaxiaozi@outlook.com>
+
 ## Java
 
 ### Java基础
