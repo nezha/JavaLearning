@@ -25,7 +25,7 @@
 
 MySQL官方对索引的定义为：索引(Index)是帮助MySQL高效获取数据的数据结构。我们可以简单理解为：**快速查找排好序的一种数据结构**。Mysql索引主要有两种结构：B+Tree索引和Hash索引。我们平常所说的索引，如果没有特别指明，一般都是指B树结构组织的索引(B+Tree索引)。索引如图所示：
 
-![](http://www.wailian.work/images/2018/11/11/640wx_fmtpngwxfrom5wx_lazy1wx_co1.jpg)
+![](https://raw.githubusercontent.com/nezha/picdb/master/20201011234722.jpg)
 
 最外层浅蓝色磁盘块1里有数据17、35（深蓝色）和指针P1、P2、P3（黄色）。P1指针表示小于17的磁盘块，P2是在17-35之间，P3指向大于35的磁盘块。真实数据存在于子叶节点也就是最底下的一层3、5、9、10、13......非叶子节点不存储真实的数据，只存储指引搜索方向的数据项，如17、35。
 
@@ -188,7 +188,7 @@ DROP INDEX idx_name_productor ON order_info;
 
 这个表示显示索引的哪一列被使用了，如果可能的话,是一个常量。前文的type属性里也有ref，注意区别。
 
-![](http://www.wailian.work/images/2018/11/11/640-5.jpg)
+![](https://raw.githubusercontent.com/nezha/picdb/master/20201011234644.jpg)
 
 #### **9.rows**
 
@@ -196,7 +196,7 @@ rows 也是一个重要的字段，mysql 查询优化器根据统计信息，估
 
 #### **10.extra**
 
-![](http://www.wailian.work/images/2018/11/11/640-4.png)
+![](https://raw.githubusercontent.com/nezha/picdb/master/20201011234625.png)
 
 explain 中的很多额外的信息会在 extra 字段显示, 常见的有以下几种内容:
 
@@ -213,11 +213,11 @@ EXPLAIN SELECT u.*, o.* FROM user_info u LEFT JOIN order_info o ON u.id = o.user
 
 执行结果，type有ALL，并且没有索引：
 
-![](http://www.wailian.work/images/2018/11/11/640-5.png)
+![](https://raw.githubusercontent.com/nezha/picdb/master/20201011234604.png)
 
 开始优化，在关联列上创建索引，明显看到type列的ALL变成ref，并且用到了索引，rows也从扫描9行变成了1行：
 
-![](http://www.wailian.work/images/2018/11/11/640-6.png)
+![](https://raw.githubusercontent.com/nezha/picdb/master/20201011234549.png)
 
 这里面一般有个规律是：左连接索引加在右表上面，右连接索引加在左表上面。
 
@@ -225,7 +225,7 @@ EXPLAIN SELECT u.*, o.* FROM user_info u LEFT JOIN order_info o ON u.id = o.user
 
 索引虽然能非常高效的提高查询速度，同时却会降低更新表的速度。实际上索引也是一张表，该表保存了主键与索引字段，并指向实体表的记录，所以索引列也是要占用空间的。
 
-![](http://www.wailian.work/images/2018/11/11/640-6.jpg)
+![](https://raw.githubusercontent.com/nezha/picdb/master/20201011234504.jpg)
 
 ## 参考文献
 
